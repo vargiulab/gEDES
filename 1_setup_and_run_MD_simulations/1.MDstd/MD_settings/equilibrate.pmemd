@@ -1,0 +1,34 @@
+a
+ &cntrl
+   imin=0,
+! nature and format of the input
+   ntx=5,
+   irest=1,
+! nature and format of the output
+   ntpr=5000,
+   ntwr=500000,
+   ntwx=5000,
+   ntwe=500000,
+   iwrap=1,
+   ntxo=1,
+   ioutfm=1,
+! potential function
+   ntf=2,
+   ntb=2,
+   cut=12.0,
+!molecular dynamics
+   nstlim=5000000,  ! 10ns equilibration
+   dt=0.002,
+   ig=-1,
+   nscm=10000,
+!pressure regulation
+   ntp=1,
+   pres0=1.0,
+   taup=1    !more appropriate for equilibration
+!temperature regulation
+   ntt=3,
+   gamma_ln=1.0,
+   temp0=310.0,
+!shake bonds?
+   ntc=2,
+ /

@@ -1,0 +1,23 @@
+initial minimisation whole system
+ &cntrl
+  ioutfm   = 1,
+  irest    = 0,
+  ntx      = 1,
+  ntxo     = 1,
+  ntpr     = 2500,
+  ntwx     = 2500,
+  ntwr     = 2500,
+  ntwe     = 2500,
+  iwrap	   = 1,
+  imin   = 1,
+  maxcyc = 25000,
+  ncyc   = 1000,
+  cut    = 12,
+!  igb    = 1,
+!  intdiel= 1,
+!  extdiel= 78.5,
+!  saltcon= 0.1,
+  ntr    = 1,
+  restraint_wt = 1.0,
+  restraintmask = "!(:WAT | :K+ | :Cl- | :Na+) & !@H="
+ /

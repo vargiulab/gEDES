@@ -1,0 +1,46 @@
+a
+ &cntrl
+   imin=0,
+! nature and format of the input
+   ntx=1,
+   irest=0,
+! nature and format of the output
+   ntpr=12500,
+   ntwr=12500,
+   ntwx=12500,
+   ntwe=12500,
+   iwrap=1,
+   ntxo=1,
+   ioutfm=1,
+! potential function
+   ntf=2,
+   ntb=2,
+   cut=12.0,
+!molecular dynamics
+   nstlim=500000, ! 1ns
+   dt=0.002,
+   ig=-1,
+   nscm=1000,
+!pressure regulation
+   ntp=1,
+   pres0=1.0,
+   taup=1.0      !more appropriate for equilibration
+!temperature regulation
+   ntt=3,
+   gamma_ln=1.0,
+   temp0=310.0,
+   tempi=0.0,
+!shake bonds?
+   ntc=2,
+   nmropt=1,
+!restraints
+!   ntr    = 1,
+!   restraint_wt = 1.0,
+!   restraintmask = "(!(:1251-1259,1267-1268,1270-1271,1274-1274,1292-1296,1388-1397,1401-1408,1440-1444,1446-1449,1451-1451,1460-1460,1484-1493,1496-1496,1501-1507,1542-1544) & @CA) | (:MBX & !@H=)"
+ /
+ &wt type='TEMP0', istep1=0, istep2=480000, value1=0.0, value2=310.0
+ /
+ &wt type='TAUTP', istep1=0, istep2=480000, value1=0.2, value2=0.2
+ /
+ &wt type='END'
+ /

@@ -1,0 +1,34 @@
+md NTP
+ &cntrl
+   imin=0,
+! nature and format of the input
+   ntx=5,
+   irest=1,
+! nature and format of the output
+   ntpr=25000,
+   ntwr=25000,
+   ntwx=25000,
+   ntwe=25000,
+   iwrap=1,
+   ntxo=1,
+   ioutfm=1,	
+! potential function
+   ntf=2,
+   ntb=2,
+   cut=12.0,
+!molecular dynamics
+nstlim=625000000,   ! Total steps = 2.5 microseconds / (0.004 ps per step) 
+   dt=0.004,
+   ig=-1,
+   nscm=1000,
+!pressure regulation
+   ntp=1,
+   pres0=1.0,
+   taup=1.0,      !more appropriate for equilibration
+!temperature regulation
+   ntt=3,
+   gamma_ln=1.0,
+   temp0=310.0,
+!shake bonds?
+   ntc=2,
+ /

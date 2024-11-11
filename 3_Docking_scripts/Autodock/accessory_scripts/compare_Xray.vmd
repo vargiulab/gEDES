@@ -1,0 +1,1349 @@
+#!/usr/local/bin/vmd
+# VMD script written by save_state $Revision: 1.47 $
+# VMD version: 1.9.3
+set viewplist {}
+set fixedlist {}
+proc vmdrestoremymaterials {} {
+  set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome ColorGhost ColorGhost2 ColorGhost3 Ghost2 Ghost3 Ghost4 Glass4 EdgyGlass2 Glossy2 Pencil PencilTransparent Pencil2 Pencil2Transparent Pencil3 Pencil3Transparent Pencil4Transparent Tomography TomoTransparent Steel2 }
+  set mymlist [material list]
+  foreach mat $mlist {
+    if { [lsearch $mymlist $mat] == -1 } { 
+      material add $mat
+    }
+  }
+  material change ambient Opaque 0.000000
+  material change diffuse Opaque 0.650000
+  material change specular Opaque 0.500000
+  material change shininess Opaque 0.534020
+  material change mirror Opaque 0.000000
+  material change opacity Opaque 1.000000
+  material change outline Opaque 0.000000
+  material change outlinewidth Opaque 0.000000
+  material change transmode Opaque 0.000000
+  material change ambient Transparent 0.000000
+  material change diffuse Transparent 0.650000
+  material change specular Transparent 0.500000
+  material change shininess Transparent 0.534020
+  material change mirror Transparent 0.000000
+  material change opacity Transparent 0.300000
+  material change outline Transparent 0.000000
+  material change outlinewidth Transparent 0.000000
+  material change transmode Transparent 0.000000
+  material change ambient BrushedMetal 0.080000
+  material change diffuse BrushedMetal 0.390000
+  material change specular BrushedMetal 0.340000
+  material change shininess BrushedMetal 0.150000
+  material change mirror BrushedMetal 0.000000
+  material change opacity BrushedMetal 1.000000
+  material change outline BrushedMetal 0.000000
+  material change outlinewidth BrushedMetal 0.000000
+  material change transmode BrushedMetal 0.000000
+  material change ambient Diffuse 0.000000
+  material change diffuse Diffuse 0.620000
+  material change specular Diffuse 0.000000
+  material change shininess Diffuse 0.530000
+  material change mirror Diffuse 0.000000
+  material change opacity Diffuse 1.000000
+  material change outline Diffuse 0.000000
+  material change outlinewidth Diffuse 0.000000
+  material change transmode Diffuse 0.000000
+  material change ambient Ghost 0.000000
+  material change diffuse Ghost 0.000000
+  material change specular Ghost 1.000000
+  material change shininess Ghost 0.230000
+  material change mirror Ghost 0.000000
+  material change opacity Ghost 0.100000
+  material change outline Ghost 0.000000
+  material change outlinewidth Ghost 0.000000
+  material change transmode Ghost 0.000000
+  material change ambient Glass1 0.000000
+  material change diffuse Glass1 0.500000
+  material change specular Glass1 0.650000
+  material change shininess Glass1 0.530000
+  material change mirror Glass1 0.000000
+  material change opacity Glass1 0.150000
+  material change outline Glass1 0.000000
+  material change outlinewidth Glass1 0.000000
+  material change transmode Glass1 0.000000
+  material change ambient Glass2 0.520000
+  material change diffuse Glass2 0.760000
+  material change specular Glass2 0.220000
+  material change shininess Glass2 0.590000
+  material change mirror Glass2 0.000000
+  material change opacity Glass2 0.680000
+  material change outline Glass2 0.000000
+  material change outlinewidth Glass2 0.000000
+  material change transmode Glass2 0.000000
+  material change ambient Glass3 0.150000
+  material change diffuse Glass3 0.250000
+  material change specular Glass3 0.750000
+  material change shininess Glass3 0.800000
+  material change mirror Glass3 0.000000
+  material change opacity Glass3 0.500000
+  material change outline Glass3 0.000000
+  material change outlinewidth Glass3 0.000000
+  material change transmode Glass3 0.000000
+  material change ambient Glossy 0.000000
+  material change diffuse Glossy 0.650000
+  material change specular Glossy 1.000000
+  material change shininess Glossy 0.880000
+  material change mirror Glossy 0.000000
+  material change opacity Glossy 1.000000
+  material change outline Glossy 0.000000
+  material change outlinewidth Glossy 0.000000
+  material change transmode Glossy 0.000000
+  material change ambient HardPlastic 0.000000
+  material change diffuse HardPlastic 0.560000
+  material change specular HardPlastic 0.280000
+  material change shininess HardPlastic 0.690000
+  material change mirror HardPlastic 0.000000
+  material change opacity HardPlastic 1.000000
+  material change outline HardPlastic 0.000000
+  material change outlinewidth HardPlastic 0.000000
+  material change transmode HardPlastic 0.000000
+  material change ambient MetallicPastel 0.000000
+  material change diffuse MetallicPastel 0.260000
+  material change specular MetallicPastel 0.550000
+  material change shininess MetallicPastel 0.190000
+  material change mirror MetallicPastel 0.000000
+  material change opacity MetallicPastel 1.000000
+  material change outline MetallicPastel 0.000000
+  material change outlinewidth MetallicPastel 0.000000
+  material change transmode MetallicPastel 0.000000
+  material change ambient Steel 0.250000
+  material change diffuse Steel 0.000000
+  material change specular Steel 0.380000
+  material change shininess Steel 0.320000
+  material change mirror Steel 0.000000
+  material change opacity Steel 1.000000
+  material change outline Steel 0.000000
+  material change outlinewidth Steel 0.000000
+  material change transmode Steel 0.000000
+  material change ambient Translucent 0.000000
+  material change diffuse Translucent 0.700000
+  material change specular Translucent 0.600000
+  material change shininess Translucent 0.300000
+  material change mirror Translucent 0.000000
+  material change opacity Translucent 0.800000
+  material change outline Translucent 0.000000
+  material change outlinewidth Translucent 0.000000
+  material change transmode Translucent 0.000000
+  material change ambient Edgy 0.000000
+  material change diffuse Edgy 0.660000
+  material change specular Edgy 0.000000
+  material change shininess Edgy 0.750000
+  material change mirror Edgy 0.000000
+  material change opacity Edgy 1.000000
+  material change outline Edgy 0.620000
+  material change outlinewidth Edgy 0.940000
+  material change transmode Edgy 0.000000
+  material change ambient EdgyShiny 0.000000
+  material change diffuse EdgyShiny 0.660000
+  material change specular EdgyShiny 0.960000
+  material change shininess EdgyShiny 0.750000
+  material change mirror EdgyShiny 0.000000
+  material change opacity EdgyShiny 1.000000
+  material change outline EdgyShiny 0.760000
+  material change outlinewidth EdgyShiny 0.940000
+  material change transmode EdgyShiny 0.000000
+  material change ambient EdgyGlass 0.000000
+  material change diffuse EdgyGlass 0.660000
+  material change specular EdgyGlass 0.500000
+  material change shininess EdgyGlass 0.750000
+  material change mirror EdgyGlass 0.000000
+  material change opacity EdgyGlass 0.620000
+  material change outline EdgyGlass 0.620000
+  material change outlinewidth EdgyGlass 0.940000
+  material change transmode EdgyGlass 0.000000
+  material change ambient Goodsell 0.520000
+  material change diffuse Goodsell 1.000000
+  material change specular Goodsell 0.000000
+  material change shininess Goodsell 0.000000
+  material change mirror Goodsell 0.000000
+  material change opacity Goodsell 1.000000
+  material change outline Goodsell 4.000000
+  material change outlinewidth Goodsell 0.900000
+  material change transmode Goodsell 0.000000
+  material change ambient AOShiny 0.000000
+  material change diffuse AOShiny 0.850000
+  material change specular AOShiny 0.200000
+  material change shininess AOShiny 0.530000
+  material change mirror AOShiny 0.000000
+  material change opacity AOShiny 1.000000
+  material change outline AOShiny 0.000000
+  material change outlinewidth AOShiny 0.000000
+  material change transmode AOShiny 0.000000
+  material change ambient AOChalky 0.000000
+  material change diffuse AOChalky 0.850000
+  material change specular AOChalky 0.000000
+  material change shininess AOChalky 0.530000
+  material change mirror AOChalky 0.000000
+  material change opacity AOChalky 1.000000
+  material change outline AOChalky 0.000000
+  material change outlinewidth AOChalky 0.000000
+  material change transmode AOChalky 0.000000
+  material change ambient AOEdgy 0.000000
+  material change diffuse AOEdgy 0.900000
+  material change specular AOEdgy 0.200000
+  material change shininess AOEdgy 0.530000
+  material change mirror AOEdgy 0.000000
+  material change opacity AOEdgy 1.000000
+  material change outline AOEdgy 0.620000
+  material change outlinewidth AOEdgy 0.930000
+  material change transmode AOEdgy 0.000000
+  material change ambient BlownGlass 0.040000
+  material change diffuse BlownGlass 0.340000
+  material change specular BlownGlass 1.000000
+  material change shininess BlownGlass 1.000000
+  material change mirror BlownGlass 0.000000
+  material change opacity BlownGlass 0.100000
+  material change outline BlownGlass 0.000000
+  material change outlinewidth BlownGlass 0.000000
+  material change transmode BlownGlass 1.000000
+  material change ambient GlassBubble 0.250000
+  material change diffuse GlassBubble 0.340000
+  material change specular GlassBubble 1.000000
+  material change shininess GlassBubble 1.000000
+  material change mirror GlassBubble 0.000000
+  material change opacity GlassBubble 0.040000
+  material change outline GlassBubble 0.000000
+  material change outlinewidth GlassBubble 0.000000
+  material change transmode GlassBubble 1.000000
+  material change ambient RTChrome 0.000000
+  material change diffuse RTChrome 0.650000
+  material change specular RTChrome 0.500000
+  material change shininess RTChrome 0.530000
+  material change mirror RTChrome 0.700000
+  material change opacity RTChrome 1.000000
+  material change outline RTChrome 0.000000
+  material change outlinewidth RTChrome 0.000000
+  material change transmode RTChrome 0.000000
+  material change ambient ColorGhost 0.000000
+  material change diffuse ColorGhost 0.500000
+  material change specular ColorGhost 0.650000
+  material change shininess ColorGhost 0.530000
+  material change mirror ColorGhost 0.000000
+  material change opacity ColorGhost 0.050000
+  material change outline ColorGhost 0.000000
+  material change outlinewidth ColorGhost 0.000000
+  material change transmode ColorGhost 0.000000
+  material change ambient ColorGhost2 0.000000
+  material change diffuse ColorGhost2 0.500000
+  material change specular ColorGhost2 0.650000
+  material change shininess ColorGhost2 0.530000
+  material change mirror ColorGhost2 0.000000
+  material change opacity ColorGhost2 0.100000
+  material change outline ColorGhost2 0.000000
+  material change outlinewidth ColorGhost2 0.000000
+  material change transmode ColorGhost2 0.000000
+  material change ambient ColorGhost3 0.300000
+  material change diffuse ColorGhost3 0.500000
+  material change specular ColorGhost3 0.250000
+  material change shininess ColorGhost3 0.570000
+  material change mirror ColorGhost3 0.000000
+  material change opacity ColorGhost3 0.250000
+  material change outline ColorGhost3 0.660000
+  material change outlinewidth ColorGhost3 0.000000
+  material change transmode ColorGhost3 0.000000
+  material change ambient Ghost2 0.000000
+  material change diffuse Ghost2 0.000000
+  material change specular Ghost2 0.950000
+  material change shininess Ghost2 0.230000
+  material change mirror Ghost2 0.000000
+  material change opacity Ghost2 0.050000
+  material change outline Ghost2 0.000000
+  material change outlinewidth Ghost2 0.000000
+  material change transmode Ghost2 0.000000
+  material change ambient Ghost3 0.000000
+  material change diffuse Ghost3 0.000000
+  material change specular Ghost3 0.970000
+  material change shininess Ghost3 0.240000
+  material change mirror Ghost3 0.000000
+  material change opacity Ghost3 0.020000
+  material change outline Ghost3 0.000000
+  material change outlinewidth Ghost3 0.000000
+  material change transmode Ghost3 0.000000
+  material change ambient Ghost4 0.000000
+  material change diffuse Ghost4 0.000000
+  material change specular Ghost4 1.000000
+  material change shininess Ghost4 0.230000
+  material change mirror Ghost4 0.000000
+  material change opacity Ghost4 0.350000
+  material change outline Ghost4 0.000000
+  material change outlinewidth Ghost4 0.000000
+  material change transmode Ghost4 0.000000
+  material change ambient Glass4 0.150000
+  material change diffuse Glass4 0.300000
+  material change specular Glass4 0.700000
+  material change shininess Glass4 0.680000
+  material change mirror Glass4 0.000000
+  material change opacity Glass4 0.350000
+  material change outline Glass4 0.000000
+  material change outlinewidth Glass4 0.000000
+  material change transmode Glass4 0.000000
+  material change ambient EdgyGlass2 0.000000
+  material change diffuse EdgyGlass2 0.660000
+  material change specular EdgyGlass2 0.410000
+  material change shininess EdgyGlass2 0.800000
+  material change mirror EdgyGlass2 0.000000
+  material change opacity EdgyGlass2 0.400000
+  material change outline EdgyGlass2 0.200000
+  material change outlinewidth EdgyGlass2 0.800000
+  material change transmode EdgyGlass2 0.000000
+  material change ambient Glossy2 0.100000
+  material change diffuse Glossy2 1.000000
+  material change specular Glossy2 1.000000
+  material change shininess Glossy2 0.700000
+  material change mirror Glossy2 0.000000
+  material change opacity Glossy2 1.000000
+  material change outline Glossy2 1.970000
+  material change outlinewidth Glossy2 0.800000
+  material change transmode Glossy2 0.000000
+  material change ambient Pencil 0.870000
+  material change diffuse Pencil 0.930000
+  material change specular Pencil 0.000000
+  material change shininess Pencil 1.000000
+  material change mirror Pencil 0.000000
+  material change opacity Pencil 1.000000
+  material change outline Pencil 2.000000
+  material change outlinewidth Pencil 0.900000
+  material change transmode Pencil 0.000000
+  material change ambient PencilTransparent 0.870000
+  material change diffuse PencilTransparent 0.930000
+  material change specular PencilTransparent 0.000000
+  material change shininess PencilTransparent 1.000000
+  material change mirror PencilTransparent 0.000000
+  material change opacity PencilTransparent 0.490000
+  material change outline PencilTransparent 2.000000
+  material change outlinewidth PencilTransparent 0.900000
+  material change transmode PencilTransparent 0.000000
+  material change ambient Pencil2 0.870000
+  material change diffuse Pencil2 0.930000
+  material change specular Pencil2 0.000000
+  material change shininess Pencil2 1.000000
+  material change mirror Pencil2 0.000000
+  material change opacity Pencil2 1.000000
+  material change outline Pencil2 4.000000
+  material change outlinewidth Pencil2 0.300000
+  material change transmode Pencil2 0.000000
+  material change ambient Pencil2Transparent 0.870000
+  material change diffuse Pencil2Transparent 0.930000
+  material change specular Pencil2Transparent 0.000000
+  material change shininess Pencil2Transparent 1.000000
+  material change mirror Pencil2Transparent 0.000000
+  material change opacity Pencil2Transparent 0.050000
+  material change outline Pencil2Transparent 0.000000
+  material change outlinewidth Pencil2Transparent 0.000000
+  material change transmode Pencil2Transparent 0.000000
+  material change ambient Pencil3 0.850000
+  material change diffuse Pencil3 0.000000
+  material change specular Pencil3 0.000000
+  material change shininess Pencil3 0.000000
+  material change mirror Pencil3 0.000000
+  material change opacity Pencil3 1.000000
+  material change outline Pencil3 0.000000
+  material change outlinewidth Pencil3 0.000000
+  material change transmode Pencil3 0.000000
+  material change ambient Pencil3Transparent 0.850000
+  material change diffuse Pencil3Transparent 0.000000
+  material change specular Pencil3Transparent 0.000000
+  material change shininess Pencil3Transparent 0.000000
+  material change mirror Pencil3Transparent 0.000000
+  material change opacity Pencil3Transparent 0.100000
+  material change outline Pencil3Transparent 0.000000
+  material change outlinewidth Pencil3Transparent 0.000000
+  material change transmode Pencil3Transparent 0.000000
+  material change ambient Pencil4Transparent 0.870000
+  material change diffuse Pencil4Transparent 0.930000
+  material change specular Pencil4Transparent 0.000000
+  material change shininess Pencil4Transparent 1.000000
+  material change mirror Pencil4Transparent 0.000000
+  material change opacity Pencil4Transparent 0.150000
+  material change outline Pencil4Transparent 2.000000
+  material change outlinewidth Pencil4Transparent 0.900000
+  material change transmode Pencil4Transparent 0.000000
+  material change ambient Tomography 0.700000
+  material change diffuse Tomography 0.680000
+  material change specular Tomography 0.000000
+  material change shininess Tomography 1.000000
+  material change mirror Tomography 0.000000
+  material change opacity Tomography 1.000000
+  material change outline Tomography 1.280000
+  material change outlinewidth Tomography 1.000000
+  material change transmode Tomography 0.000000
+  material change ambient TomoTransparent 0.700000
+  material change diffuse TomoTransparent 0.680000
+  material change specular TomoTransparent 0.000000
+  material change shininess TomoTransparent 1.000000
+  material change mirror TomoTransparent 0.000000
+  material change opacity TomoTransparent 0.740000
+  material change outline TomoTransparent 1.280000
+  material change outlinewidth TomoTransparent 1.000000
+  material change transmode TomoTransparent 0.000000
+  material change ambient Steel2 0.500000
+  material change diffuse Steel2 0.000000
+  material change specular Steel2 0.200000
+  material change shininess Steel2 0.050000
+  material change mirror Steel2 0.000000
+  material change opacity Steel2 1.000000
+  material change outline Steel2 0.000000
+  material change outlinewidth Steel2 0.000000
+  material change transmode Steel2 0.000000
+}
+vmdrestoremymaterials
+# Atom selection macros
+atomselect macro at {resname ADE A THY T
+}
+atomselect macro acidic {resname ASP GLU
+}
+atomselect macro cyclic {resname HIS PHE PRO TRP TYR
+}
+atomselect macro acyclic {protein and not cyclic
+}
+atomselect macro aliphatic {resname ALA GLY ILE LEU VAL
+}
+atomselect macro alpha {protein and name CA
+}
+atomselect macro amino {protein
+}
+atomselect macro aromatic {resname HIS PHE TRP TYR
+}
+atomselect macro basic {resname ARG HIS LYS HSP
+}
+atomselect macro bonded {numbonds > 0
+}
+atomselect macro buried {resname ALA LEU VAL ILE PHE CYS MET TRP
+}
+atomselect macro cg {resname CYT C GUA G
+}
+atomselect macro charged {basic or acidic
+}
+atomselect macro hetero {not (protein or nucleic)
+}
+atomselect macro hydrophobic {resname ALA LEU VAL ILE PRO PHE MET TRP
+}
+atomselect macro small {resname ALA GLY SER
+}
+atomselect macro medium {resname VAL THR ASP ASN PRO CYS ASX PCA HYP
+}
+atomselect macro large {protein and not (small or medium)
+}
+atomselect macro neutral {resname VAL PHE GLN TYR HIS CYS MET TRP ASX GLX PCA HYP
+}
+atomselect macro polar {protein and not hydrophobic
+}
+atomselect macro purine {resname ADE A GUA G
+}
+atomselect macro pyrimidine {resname CYT C THY T URA U
+}
+atomselect macro surface {protein and not buried
+}
+atomselect macro lipid {resname DLPE DMPC DPPC GPC LPPC PALM PC PGCL POPC POPE
+}
+atomselect macro lipids {lipid
+}
+atomselect macro ion {resname AL BA CA CAL CD CES CLA CL CO CS CU CU1 CUA HG IN IOD K LIT MG MN3 MO3 MO4 MO5 MO6 NA NAW OC7 PB POT PT RB SOD TB TL WO4 YB ZN ZN1 ZN2
+}
+atomselect macro ions {ion
+}
+atomselect macro sugar {resname AGLC
+}
+atomselect macro solvent {not (protein or sugar or nucleic or lipid)
+}
+atomselect macro glycan {resname NAG BGLN FUC AFUC MAN AMAN BMA BMAN
+}
+atomselect macro carbon {name "C.*" and not ion
+}
+atomselect macro hydrogen {name "[0-9]?H.*"
+}
+atomselect macro nitrogen {name "N.*"
+}
+atomselect macro oxygen {name "O.*"
+}
+atomselect macro sulfur {name "S.*" and not ion
+}
+atomselect macro noh {not hydrogen
+}
+atomselect macro heme {resname HEM HEME
+}
+atomselect macro conformationall {altloc ""
+}
+atomselect macro conformationA {altloc "" or altloc "A"
+}
+atomselect macro conformationB {altloc "" or altloc "B"
+}
+atomselect macro conformationC {altloc "" or altloc "C"
+}
+atomselect macro conformationD {altloc "" or altloc "D"
+}
+atomselect macro conformationE {altloc "" or altloc "E"
+}
+atomselect macro conformationF {altloc "" or altloc "F"
+}
+atomselect macro drude {type DRUD or type LP
+}
+atomselect macro sidearm {alpha or sidechain}
+atomselect macro BS33_abeta {(protein and resid 18 19 20 21 24 27 30 31 32)}
+atomselect macro BS33_bace {(protein and resid 12 13 32 34 35 71 72 73 74 108 109 110 198 226 228 229 230 233 329 332)}
+atomselect macro BS33_bace_bb {(protein and backbone and resid 12 13 32 34 35 71 72 73 74 108 109 110 198 226 228 229 230 233 329 332)}
+atomselect macro BS33_bace_union {(protein and resid 10 11 12 13 30 32 34 35 69 70 71 72 73 74 107 108 109 110 115 198 226 228 229 230 231 232 233 235 325 329)}
+atomselect macro BS33_bace_bb_union {(protein and backbone and resid 10 11 12 13 30 32 34 35 69 70 71 72 73 74 107 108 109 110 115 198 226 228 229 230 231 232 233 235 325 329)}
+atomselect macro BS33_gluco {(protein and resid 18 188 189 191 195 213 214 237 238 240 261 267 269 272)}
+atomselect macro BS33_gluco_bb {(protein and backbone and noh and resid 18 188 189 191 195 213 214 237 238 240 261 267 269 272)}
+atomselect macro BS46_gluco {(protein and resid 18 213 238 239 240 243 268 21 100 102 137 165 166 186 187 188 189 191 195 214 215 236 237 241 246 247 257 258 261 267 269 272)}
+atomselect macro BS33_ricina {(protein and resid 80 81 93 121 122 123 172 176 177 180 208 209)}
+atomselect macro BS33_ricina_bb {(protein and backbone and resid 80 81 93 121 122 123 172 176 177 180 208 209)}
+atomselect macro BS46_ricina {(protein and resid 79 80 81 93 123 126 172 211 78 122 124 134176 177 180 208 209 210)}
+atomselect macro BS33_cdk2 {(protein and resid 11 12 13 14 19 32 65 81 82 84 86 87 132 135)}
+atomselect macro BS33_cdk2_bb {(protein and backbone and resid 11 12 13 14 19 32 65 81 82 84 86 87 132 135)}
+atomselect macro BS46_cdk2 {(protein and resid 13 15 34 66 82 85 86 87 89 90 130 132 133 146 11 19 32 65 81 83 84 135)}
+atomselect macro BS33_p38 {(protein and resid 30 35 51 53 104 105 106 107 108 109 111 112 155 168)}
+atomselect macro BS33_p38_bb {(protein and backbone and resid 30 35 51 53 104 105 106 107 108 109 111 112 155 168)}
+atomselect macro BS33_epsp {(protein and resid 20 21 25 92 93 166 167 168 312 339 340 343 385)}
+atomselect macro BS33_epsp_bb {(protein and backbone and resid 20 21 25 92 93 166 167 168 312 339 340 343 385)}
+atomselect macro BS33_allose {(protein and resid 9 13 15 16 42 91 92 147 151 175 201 227 247)}
+atomselect macro BS33_allose_bb {(protein and backbone and resid 9 13 15 16 42 91 92 147 151 175 201 227 247)}
+atomselect macro BS5_allose {(protein and resid 9 13 15 16 42 91 92 147 151 175 200 201 226 227 247)}
+atomselect macro AK_LID {(protein and resid 118 to 160)}
+atomselect macro AK_NMP {(protein and resid 30 to 67)}
+atomselect macro AK_CORE {(protein and not (AK_LID or AK_NMP))}
+atomselect macro AK_LID_keyres {(protein and resid 119 123 137 138 156 158)}
+atomselect macro AK_NMP_keyres {(protein and resid 31 32 35 36 53 57 58 59 64)}
+atomselect macro AK_CORE_keyres {(protein and resid 8 9 10 11 12 13 14 15 84 85 86 88 92 167 200 201 202 205)}
+atomselect macro BS33_ak_old {(protein and resid 12 13 14 15 31 57 85 88 92 123 133 156 200)}
+atomselect macro BS33_ak_old_bb {(protein and backbone and resid 12 13 14 15 31 57 85 88 92 123 133 156 200)}
+atomselect macro BS33_aknc {(protein and resid 31 32 35 36 57 58 59 64 84 85 86 88 92)}
+atomselect macro BS33_aklc {(protein and resid 8 9 10 11 12 13 15 119 120 123 134 137 156 158 167)}
+atomselect macro BS33_akcoach {(protein and resid 8 9 10 11 12 13    15 31 32 35 36 57 58 59 64 84 85 86 88 92 119 120 123     134 137 156 158 167 200 201 202 205)}
+atomselect macro BS33_ak {(protein and resid 8 9 10 11 12 13    15 31 32 35 36 57 58 59 64 84 85 86 88 92 119 120 123     134 137 156 158 167 200 201 202 205)}
+atomselect macro BS33_ak_exp {(protein and resid 9 10 11 12 13 14 15 31       36 53 57 59 64    85    88 92         123 133 134 137 156 167 200     202)}
+atomselect macro BS33_ap5 {(protein and resid 8 9 10 11 12 13    15 31 32 35 36 57 58 59 64 84 85 86 88 92 119 120 123     134 137 156 167 200 201 202 205)}
+atomselect macro BS33_ap5_exp {(protein and resid 9 10 11 12 13 14 15 31       36 53 57 59 64    85    88 92         123 133 134 137 156 167 200     202)}
+atomselect macro BS33_atf_exp {(protein and resid 9 10 11 12 13 14 15 119 123 132 133 134 200)}
+atomselect macro BS33_adp_exp {(protein and resid 10 11 12 13 14 15 119 123 124 132 133 134 137 200 202 205)}
+atomselect macro BS33_amp_exp {(protein and resid 31 36 57 58 59 64 85 86 88 92 156 167)}
+atomselect macro BS33_atf_hm {(protein and resid 8 9 10 11 12 13 15 119 123 132 133 134 137 200)}
+atomselect macro BS33_ap5_hm {(protein and resid 9 10 11 12 13 14 15 31 32 35 36 53 57 58 59 64 85 86 87 88 89 93 119 120 124 125 127 128 137 138 139 142 161 167 172 198 200 201 202 205)}
+atomselect macro BS33_gcp_exp {(protein and resid 9 10 11 12 13 14 119 120 123 158 167)}
+atomselect macro AcrB_tmHelicesA {chain A and resid 6 to 27 328 to 358 361 to 383 390 to 422 425 to 456 459 to 492 512 to 531 537 to 556 860 to 889 895 to 916 923 to 952 961 to 988 997 to 1027}
+atomselect macro AcrB_tmHelicesB {chain B and resid 6 to 27 328 to 358 361 to 383 390 to 422 425 to 456 459 to 492 512 to 531 537 to 556 860 to 889 895 to 916 923 to 952 961 to 988 997 to 1027}
+atomselect macro AcrB_tmHelicesC {chain C and resid 6 to 27 328 to 358 361 to 383 390 to 422 425 to 456 459 to 492 512 to 531 537 to 556 860 to 889 895 to 916 923 to 952 961 to 988 997 to 1027}
+atomselect macro AcrB_tmHelices {AcrB_tmHelicesA or AcrB_tmHelicesB or AcrB_tmHelicesC}
+atomselect macro AcrB_tmDomain {(((chain A B C) or (pfrag 0 1 2)) and resid 1 to 29 330 to 558 862 to 1033)}
+atomselect macro AcrB_Ia1 {resid 1 to 8}
+atomselect macro AcrB_tm1 {resid 9 to 30}
+atomselect macro AcrB_tm2 {resid 330 to 360}
+atomselect macro AcrB_tm3 {resid 362 to 387}
+atomselect macro AcrB_tm4 {resid 392 to 424}
+atomselect macro AcrB_tm5 {resid 427 to 459}
+atomselect macro AcrB_tm6 {resid 461 to 497}
+atomselect macro AcrB_Ia2 {resid 512 to 537}
+atomselect macro AcrB_tm7 {resid 538 to 559}
+atomselect macro AcrB_tm8 {resid 861 to 893}
+atomselect macro AcrB_tm9 {resid 895 to 920}
+atomselect macro AcrB_tm10 {resid 925 to 957}
+atomselect macro AcrB_tm11 {resid 960 to 992}
+atomselect macro AcrB_tm12 {resid 997 to 1033}
+atomselect macro AcrB_PN1 {(((chain A B C) or (pfrag 0 1 2)) and resid 42 to 131)}
+atomselect macro AcrB_PN1_oct {(((chain A B C) or (pfrag 0 1 2)) and resid 11 to 100)}
+atomselect macro AcrB_PN2 {(((chain A B C) or (pfrag 0 1 2)) and resid 137 to 177 287 to 325)}
+atomselect macro AcrB_PN2_oct {(((chain A B C) or (pfrag 0 1 2)) and resid 106 to 146 256 to 294)}
+atomselect macro AcrB_PC1 {(((chain A B C) or (pfrag 0 1 2)) and resid 571 to 667)}
+atomselect macro AcrB_PC1_oct {(((chain A B C) or (pfrag 0 1 2)) and resid 312 to 408)}
+atomselect macro AcrB_PC2 {(((chain A B C) or (pfrag 0 1 2)) and resid 679 to 721 822 to 859)}
+atomselect macro AcrB_PC2_oct {(((chain A B C) or (pfrag 0 1 2)) and resid 420 to 462 563 to 600)}
+atomselect macro AcrB_poreDomain {AcrB_PN1 or AcrB_PN2 or AcrB_PC1 or AcrB_PC2}
+atomselect macro AcrB_poreDomain_oct {AcrB_PN1_oct or AcrB_PN2_oct or AcrB_PC1_oct or AcrB_PC2_oct}
+atomselect macro AcrB_DN {((chain A B C) or (pfrag 0 1 2)) and resid 181 to 272}
+atomselect macro AcrB_DC {((chain A B C) or (pfrag 0 1 2)) and resid 723 to 812}
+atomselect macro AcrB_TolCdomain {AcrB_DN or AcrB_DC}
+atomselect macro AcrB_proton_relay {((chain A B C) or (pfrag 0 1 2)) and resid 407 408 940 971 978}
+atomselect macro AcrB_doxoBindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 46 89 128 130 136 176 177 178 179 273 274 277 610 612 615 617}
+atomselect macro AcrB_doxoBindRes_B_4DX7 {((chain A B C) or (pfrag 0 1 2)) and resid 46 89 128 130 176 177 178 273 274 277 610 612 615}
+atomselect macro AcrB_doxoBindRes_B_oct {((chain A B C) or (pfrag 0 1 2)) and resid 15 58 97 99 105 145 146 147 148 242 243 246 351 353 356 358}
+atomselect macro AcrB_TM1_2 {((chain A B C) or (pfrag 0 1 2)) and resid 27 334 337 338 341}
+atomselect macro AcrB_TM1_2_A {protein and residue 26 333 336 337 340}
+atomselect macro AcrB_TM1_2_B {protein and residue 1070 1377 1380 1381 1384}
+atomselect macro AcrB_TM1_2_C {protein and residue 2103 2410 2413 2414 2417}
+atomselect macro AcrB_TM1_2_loop {((chain A B C) or (pfrag 0 1 2)) and resid 296 to 300}
+atomselect macro AcrB_TM1_2_loop_A {protein and residue 295 296 297 298 299}
+atomselect macro AcrB_TM1_2_loop_B {protein and residue 1339 1340 1341 1342 1343}
+atomselect macro AcrB_TM1_2_loop_C {protein and residue 2372 2373 2374 2375 2376}
+atomselect macro AcrB_S2 {((chain A B C) or (pfrag 0 1 2)) and resid 326 to 328 629 to 631}
+atomselect macro AcrB_S2_A {protein and residue 325 326 327 628 629 630}
+atomselect macro AcrB_S2_B {protein and residue 1369 1370 1371 1672 1673 1674}
+atomselect macro AcrB_S2_C {protein and residue 2402 2403 2404 2705 2706 2707}
+atomselect macro AcrB_S1up {((chain A B C) or (pfrag 0 1 2)) and resid 27 298 300 301 334 337}
+atomselect macro AcrB_S1up_A {protein and residue 26 297 299 300 333 336}
+atomselect macro AcrB_S1up_B {protein and residue 1070 1341 1343 1344 1377 1380}
+atomselect macro AcrB_S1up_C {protein and residue 2103 2374 2376 2377 2410 2413}
+atomselect macro AcrB_S1prime {((chain A B C) or (pfrag 0 1 2)) and resid 335 336 339 340 342 343 991 to 996}
+atomselect macro AcrB_S1prime_A {protein and residue 334 335 338 339 341 342 990 991 992 993 994 995}
+atomselect macro AcrB_S1prime_B {protein and residue 1378 1379 1382 1383 1385 1386 2034 2035 2036 2037 2038 2039}
+atomselect macro AcrB_S1prime_C {protein and residue 2411 2412 2415 2416 2418 2419 3067 3068 3069 3070 3071 3072}
+atomselect macro AcrB_minoBindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 176 178 180 273 274 276 277 610 612 615 620}
+atomselect macro AcrB_minoBindRes_B_oct {((chain A B C) or (pfrag 0 1 2)) and resid 145 147 149 242 243 245 246 351 353 356 361}
+atomselect macro AcrB_maltoseBindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid 467 556 871 877 881 928}
+atomselect macro AcrB_maltoseBindRes_A_oct_notcomplete {((chain A B C) or (pfrag 0 1 2)) and resid 208 297}
+atomselect macro AcrB_maltoseBindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 566 628 666 667 669 672}
+atomselect macro AcrB_maltoseBindRes_B_oct {((chain A B C) or (pfrag 0 1 2)) and resid 307 369 407 408 410 413}
+atomselect macro AcrB_doxo2BindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid     617 666 667 668 676 681 719 826}
+atomselect macro AcrB_doxo2BindRes_A_oct {((chain A B C) or (pfrag 0 1 2)) and resid 358 407 408 409 417 422 460 567}
+atomselect macro AcrB_rifamBindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid     573 575 577 617 624 662 664 666 717 719}
+atomselect macro AcrB_rifamBindRes_A_oct {((chain A B C) or (pfrag 0 1 2)) and resid 314 316 318 358 365 403 405 407 460 458}
+atomselect macro AcrB_eryBindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid     79 91 134 135 292 617 674 681}
+atomselect macro AcrB_eryBindRes_A_oct {((chain A B C) or (pfrag 0 1 2)) and resid 48 60 103 104 261 358 415 422}
+atomselect macro AcrB_rhqBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 667 676 678 717 830}
+atomselect macro AcrB_rhqBindRes_A_cen_cav {((chain A B C) or (pfrag 0 1 2)) and resid 386}
+atomselect macro AcrB_ethBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 575 664 717}
+atomselect macro AcrB_ethBindRes_A_cen_cav {((chain A B C) or (pfrag 0 1 2)) and resid 468}
+atomselect macro AcrB_cipBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 664 666 667 830}
+atomselect macro AcrB_cipBindRes_A_cen_cav {((chain A B C) or (pfrag 0 1 2)) and resid 96 97 468}
+atomselect macro AcrB_nfnBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 575 577 664 717 719 722}
+atomselect macro AcrB_nfnBindRes_A_cen_cav {((chain A B C) or (pfrag 0 1 2)) and resid 96 97 468}
+atomselect macro AcrB_pabnBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 664 828 830}
+atomselect macro AcrB_pabnBindRes_A_cen_cav {((chain A B C) or (pfrag 0 1 2)) and resid 386}
+atomselect macro AcrB_dxcBindRes_A_cleft {((chain A B C) or (pfrag 0 1 2)) and resid 664 715 828}
+atomselect macro AcrB_p9dBindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 176 177 178 179 277 279 327 610 612 620 628 668}
+atomselect macro AcrB_puyBindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 134 136 139 178 573 615 617 628 664 666 668 669 672}
+atomselect macro AcrB_mbx3132BindRes_B {((chain A B C) or (pfrag 0 1 2)) and resid 136 139 178 179 277 279 286 326 327 573 610 612 615 628}
+atomselect macro AcrB_832BindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid 404 405 407 408 411 438 441 442 443 445 446 449 482 940 943 944 947 948 971}
+atomselect macro BS_AcrB_832BindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid 404 405 407 408 411 438 441 442 443 445 446 449 482 940 943 944 947 948 971}
+atomselect macro AcrB_855BindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid 404 405 407 408 411 438 441 442 445 446 449 940 941 943 944 947 948 971}
+atomselect macro BS_AcrB_855BindRes_A {((chain A B C) or (pfrag 0 1 2)) and resid 404 405 407 408 411 438 441 442 445 446 449 940 941 943 944 947 948 971}
+atomselect macro AcrB_832BindRes_A_red {((chain A B C) or (pfrag 0 1 2)) and resid 105 106 108 109 112 139 142 143 144 146 147 150 183 340 343 344 347 348 371}
+atomselect macro BS_AcrB_832BindRes_A_red {((chain A B C) or (pfrag 0 1 2)) and resid 105 106 108 109 112 139 142 143 144 146 147 150 183 340 343 344 347 348 371}
+atomselect macro AcrB_855BindRes_A_red {((chain A B C) or (pfrag 0 1 2)) and resid 105 106 108 109 112 139 142 143 146 147 150 340 341 343 344 347 348 371}
+atomselect macro BS_AcrB_855BindRes_A_red {((chain A B C) or (pfrag 0 1 2)) and resid 105 106 108 109 112 139 142 143 146 147 150 340 341 343 344 347 348 371}
+atomselect macro AcrB_BindRes_A_ext_cleft_Xray {((chain A B C) or (pfrag 0 1 2)) and resid 575 577 664 666 667 676 678 715 717 719 722 828 830}
+atomselect macro AcrB_BindRes_A_ext_cleft_Xray_oct {((chain A B C) or (pfrag 0 1 2)) and resid 316 318 405 407 415 417 420 422 424 463 569 571}
+atomselect macro AcrB_BindRes_A_cen_cav_Xray {((chain A B C) or (pfrag 0 1 2)) and resid  96  97 386 468}
+atomselect macro AcrB_BindRes_A_cen_cav_Xray_oct_incomplete {((chain A B C) or (pfrag 0 1 2)) and resid  65  66 }
+atomselect macro AcrB_distalPocket {((chain A B C) or (pfrag 0 1 2)) and resid     46 89 128 130 134 136 139 176 177 178 179 180 273 274 276 277 327 573 610 612 615 617 620 628}
+atomselect macro BS33_acrbdp {((chain A B C) or (pfrag 0 1 2)) and resid           46 89 128 130 134 136 139 176 177 178 179 180 273 274 276 277 327 573 610 612 615 617 620 628}
+atomselect macro AcrB_distalPocket_oct {((chain A B C) or (pfrag 0 1 2)) and resid 15 58 97 99 103 105 108 145 146 147 148 149 242 243 245 246 296 314 351 353 356 358 361 369}
+atomselect macro AcrB_HPtrap {((chain A B C) or (pfrag 0 1 2)) and resid     136 178 610 615 628}
+atomselect macro AcrB_HPtrap_oct {((chain A B C) or (pfrag 0 1 2)) and resid 105 147 351 356 369}
+atomselect macro AcrB_proximalPocket {((chain A B C) or (pfrag 0 1 2)) and resid     79 91 134 135 292 573 575 577 617 624 662 664 666 667 668 674 676 681 717 719 826}
+atomselect macro AcrB_proximalPocket_oct {((chain A B C) or (pfrag 0 1 2)) and resid 48 60 103 104 261 314 316 318 358 365 403 405 407 408 409 415 417 422 458 460 567}
+atomselect macro AcrB_dist_prox_interface {((chain A B C) or (pfrag 0 1 2)) and resid     134 573 617}
+atomselect macro AcrB_dist_prox_interface_oct {((chain A B C) or (pfrag 0 1 2)) and resid 103 314 358}
+atomselect macro AcrB_loop_gate {((chain A B C) or (pfrag 0 1 2)) and resid 616 to 619}
+atomselect macro AcrB_loop_gate_oct {((chain A B C) or (pfrag 0 1 2)) and resid 357 to 360}
+atomselect macro AcrB_doxoChannel {(chain B and resid 48 to 50 85 to 89 126 163 177 to 181 273 to 276 767 to 772) or (chain C and resid 67 to 70 113 to 117)}
+atomselect macro AcrB_doxoGate {((chain A B C) or (pfrag 0 1 2)) and resid 124 125 758}
+atomselect macro AcrB_vestibule_boundary {((chain A B C) or (pfrag 0 1 2)) and resid 557 836}
+atomselect macro AcrB_vestibule_boundary_oct_incomplete {((chain A B C) or (pfrag 0 1 2)) and resid 298 577}
+atomselect macro AcrB_ext_cleft_entrance {((chain A B C) or (pfrag 0 1 2)) and (resid 664 666 668 717 828)}
+atomselect macro AcrB_ext_cleft_bottom {((chain A B C) or (pfrag 0 1 2)) and (resid 566 673 676)}
+atomselect macro AcrB_bp_extended {((chain A B C) or (pfrag 0 1 2)) and (resid 89 134 136 176 178 274 276 277 290 327 573 615 617 620 628)}
+atomselect macro AcrB_gate_essential {((chain A B C) or (pfrag 0 1 2)) and (resid 124 758)}
+atomselect macro AcrB_central_cav {(chain A B C) and (resid 97)}
+atomselect macro AcrB_vestibule {chain A B C and resid 836 842 868 872}
+atomselect macro AcrB_CH1_entrance {((chain A B C) or (pfrag 0 1 2)) and resid 836 838 840 842 868 870 872}
+atomselect macro AcrB_CH2_entrance {((chain A B C) or (pfrag 0 1 2)) and resid 566 645 649 653 656 662 676 678 715 717 719 722 830}
+atomselect macro AcrB_CH3_entrance {((chain A B C) or (pfrag 0 1 2)) and resid 33 37 100 296 298}
+atomselect macro AcrB_CC {((chain A B C) or (pfrag 0 1 2)) and resid 96 97 386 468}
+atomselect macro AcrB_AP {((chain A B C) or (pfrag 0 1 2)) and resid 79 91 134 135 573 575 577 617 624 664 666 667 668 674 828}
+atomselect macro AcrB_DP {((chain A B C) or (pfrag 0 1 2)) and resid 46 89 128 130 134 136 139 176 177 178 179 180 273 274 276 277 327 573 610 612 615 617 620 628}
+atomselect macro AcrB_AP_DP {((chain A B C) or (pfrag 0 1 2)) and resid 134 135 573 617}
+atomselect macro AcrB_HTphe {((chain A B C) or (pfrag 0 1 2)) and resid 136 178 610 615 628}
+atomselect macro AcrB_SL {((chain A B C) or (pfrag 0 1 2)) and resid 616 to 619}
+atomselect macro AcrB_EG {((chain A B C) or (pfrag 0 1 2)) and resid 124 125 758}
+atomselect macro AcrB_EG_channel {(chain A and resid 60 64 67 113 114 116 to 120) or (chain C and resid 46 to 51 121 to 126 183 755 to 761 768 to 772)}
+atomselect macro AcrB_CL {((chain A B C) or (pfrag 0 1 2)) and resid 206 to 243}
+atomselect macro AcrB_HL {((chain A B C) or (pfrag 0 1 2)) and resid 857 to 872}
+atomselect macro AcrB_Ia_helix {((chain A B C) or (pfrag 0 1 2)) and resid 515 to 534}
+atomselect macro AcrB_CH1r {((chain A B C) or (pfrag 0 1 2)) and resid 577 579 581 583 609 611}
+atomselect macro AcrB_CH2r {((chain A B C) or (pfrag 0 1 2)) and resid 307 386 390 394 397 403 417 419 456 458 460 463 571}
+atomselect macro AcrB_CH3r {((chain A B C) or (pfrag 0 1 2)) and resid 2 6 69 265 267}
+atomselect macro AcrB_CCr {((chain A B C) or (pfrag 0 1 2)) and resid 65 66}
+atomselect macro AcrB_APr {((chain A B C) or (pfrag 0 1 2)) and resid 48 60 103 104 314 316 318 358 365 405 407 408 409 415 569}
+atomselect macro AcrB_DPr {((chain A B C) or (pfrag 0 1 2)) and resid 15 58 97 99 103 105 108 145 146 147 148 149 242 243 245 246 296 314 351 353 356 358 361 369}
+atomselect macro AcrB_AP_DPr {((chain A B C) or (pfrag 0 1 2)) and resid 103 104 314 358}
+atomselect macro AcrB_HTpher {((chain A B C) or (pfrag 0 1 2)) and resid 105 147 351 356 369}
+atomselect macro AcrB_SLr {((chain A B C) or (pfrag 0 1 2)) and resid 357 358 359 360}
+atomselect macro AcrB_EGr {((chain A B C) or (pfrag 0 1 2)) and resid 93 94 499}
+atomselect macro AcrB_ext_cleft_entrance_oct {((chain A B C) or (pfrag 0 1 2)) and (resid 405 407 409 458 569)}
+atomselect macro AcrB_ext_cleft_bottom_oct {((chain A B C) or (pfrag 0 1 2)) and (resid 307 414 417)}
+atomselect macro AcrB_bp_extended_oct {((chain A B C) or (pfrag 0 1 2)) and (resid 58 103 105 145 147 243 245 246 259 296 314 356 358 361 369)}
+atomselect macro AcrB_gate_essential_oct {((chain A B C) or (pfrag 0 1 2)) and (resid 93 499)}
+atomselect macro AcrB_central_cav_oct {((chain A B C) or (pfrag 0 1 2)) and (resid 66)}
+atomselect macro AcrB_vestibule_oct_incomplete {((chain A B C) or (pfrag 0 1 2)) and (resid 577 583 609 613)}
+atomselect macro AdeB_AP_eth {((chain A B C) or (pfrag 0 1 2)) and resid 572 612 654 656 658 668 706 708 710 821}
+atomselect macro AdeB_DP_eth {((chain A B C) or (pfrag 0 1 2)) and resid 178 179 277 278 279 607 610}
+atomselect macro AdeB_HT_eth {((chain A B C) or (pfrag 0 1 2)) and resid 136 139 178 279 288 326 327 568 605 607 623 625 664}
+atomselect macro AdeB_DP_r6g {((chain A B C) or (pfrag 0 1 2)) and resid 89 135 136 151 176 178 277 292 327 623}
+atomselect macro AdeB_DP_tpp {((chain A B C) or (pfrag 0 1 2)) and resid 136 178 292 327 623}
+atomselect macro AdeB_AP_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 572 574 611 612 613 619 620 654 655 656 657 658 659 665 666 668 669 670 673 706 707 708 709 710 817}
+atomselect macro AdeB_DP_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 42 44 46 89 134 135 136 174 176 177 178 276 277 290 292 327 570 573 605 607 608 610 612 614 615 619 620 621 623}
+atomselect macro AdeB_HT_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 136 178 605 610 623}
+atomselect macro AdeB_Cl_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 656 658 659 708 819}
+atomselect macro AdeB_EG_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 124 125 749 761}
+atomselect macro AdeB_SL_mdl {((chain A B C) or (pfrag 0 1 2)) and resid 611 612 613 614}
+atomselect macro alpha_MexA {(protein and (resid 61 to 123))}
+atomselect macro lip_MexA {(protein and (resid 26 to 60 124 to 159))}
+atomselect macro beta_MexA {(protein and (resid 15 to 25 160 to 250))}
+atomselect macro MP_MexA {(protein and (resid 1 to 14 251 to 327))}
+atomselect macro ca_alpha_MexA {(name CA and (resid 61 to 123))}
+atomselect macro ca_lip_MexA {(name CA and (resid 26 to 60 124 to 159))}
+atomselect macro ca_beta_MexA {(name CA and (resid 15 to 25 160 to 250))}
+atomselect macro ca_MP_MexA {(name CA and (resid 1 to 14 251 to 327))}
+atomselect macro mon1 {(resid 1 to 60)}
+atomselect macro mon2 {(resid 61 to 120)}
+atomselect macro mon3 {(resid 121 to 180)}
+atomselect macro mon4 {(resid 181 to 240)}
+atomselect macro mon5 {(resid 1 to 300)}
+atomselect macro mon6 {(resid 1 to 60)}
+atomselect macro TMS {(chain A B C and resid 42 to 131)}
+atomselect macro K72_VSD_S0_1 {(protein and resid 1 to 13)}
+atomselect macro K72_VSD_S1_1 {(protein and resid 17 to 40)}
+atomselect macro K72_VSD_S2_1 {(protein and resid 44 to 76)}
+atomselect macro K72_VSD_S2_3l_1 {(protein and resid 44 to 92)}
+atomselect macro K72_VSD_S3_1 {(protein and resid 93 to 111)}
+atomselect macro K72_VSD_S4_1 {(protein and resid 118 to 139)}
+atomselect macro K72_VSD_1 {(protein and resid 1 to 139)}
+atomselect macro K72_S4_5l_1 {(protein and resid 140 to 153)}
+atomselect macro K72_Pore_S5_1 {(protein and resid 154 to 181)}
+atomselect macro K72_Pore_S5-6l_1 {(protein and resid 182 to 213)}
+atomselect macro K72_Pore_filter_1 {(protein and resid 203 to 207)}
+atomselect macro K72_Pore_S6_1 {(protein and resid 214 to 249)}
+atomselect macro K72_Pore_1 {(protein and resid 154 to 249)}
+atomselect macro K72_VSDnet1 {(protein and resid 12 56 63 66 98 124 127 130 133 136 139)}
+atomselect macro K72_VSD_S0_2 {(protein and resid 250 to 262)}
+atomselect macro K72_VSD_S1_2 {(protein and resid 266 to 289)}
+atomselect macro K72_VSD_S2_2 {(protein and resid 293 to 325)}
+atomselect macro K72_VSD_S2_3l_2 {(protein and resid 293 to 341)}
+atomselect macro K72_VSD_S3_2 {(protein and resid 342 to 360)}
+atomselect macro K72_VSD_S4_2 {(protein and resid 367 to 388)}
+atomselect macro K72_VSD_2 {(protein and resid 250 to 388)}
+atomselect macro K72_S4_5l_2 {(protein and resid 389 to 402)}
+atomselect macro K72_Pore_S5_2 {(protein and resid 403 to 430)}
+atomselect macro K72_Pore_S5_6l_2 {(protein and resid 431 to 462)}
+atomselect macro K72_Pore_filter_2 {(protein and resid 452 to 456)}
+atomselect macro K72_Pore_S6_2 {(protein and resid 463 to 498)}
+atomselect macro K72_Pore_2 {(protein and resid 403 to 498)}
+atomselect macro K72_VSDnet2 {(protein and resid 261 305 312 315 347 373 376 379 382 385 388)}
+atomselect macro K72_VSD_S0_3 {(protein and resid 499 to 511)}
+atomselect macro K72_VSD_S1_3 {(protein and resid 515 to 538)}
+atomselect macro K72_VSD_S2_3 {(protein and resid 542 to 574)}
+atomselect macro K72_VSD_S2_3l_3 {(protein and resid 542 to 590)}
+atomselect macro K72_VSD_S3_3 {(protein and resid 591 to 609)}
+atomselect macro K72_VSD_S4_3 {(protein and resid 616 to 637)}
+atomselect macro K72_VSD_3 {(protein and resid 499 to 637)}
+atomselect macro K72_S4_5l_3 {(protein and resid 638 to 651)}
+atomselect macro K72_Pore_S5_3 {(protein and resid 652 to 679)}
+atomselect macro K72_Pore_S5_6l_3 {(protein and resid 680 to 711)}
+atomselect macro K72_Pore_filter_3 {(protein and resid 701 to 705)}
+atomselect macro K72_Pore_S6_3 {(protein and resid 712 to 747)}
+atomselect macro K72_Pore_3 {(protein and resid 652 to 747)}
+atomselect macro K72_VSDnet3 {(protein and resid 510 554 561 564 596 622 625 628 631 634 637)}
+atomselect macro K72_VSD_S0_4 {(protein and resid 748 to 760)}
+atomselect macro K72_VSD_S1_4 {(protein and resid 764 to 787)}
+atomselect macro K72_VSD_S2_4 {(protein and resid 791 to 823)}
+atomselect macro K72_VSD_S2_3l_4 {(protein and resid 791 to 839)}
+atomselect macro K72_VSD_S3_4 {(protein and resid 840 to 858)}
+atomselect macro K72_VSD_S4_4 {(protein and resid 865 to 886)}
+atomselect macro K72_VSD_4 {(protein and resid 748 to 886)}
+atomselect macro K72_S4_5l_4 {(protein and resid 887 to 900)}
+atomselect macro K72_Pore_S5_4 {(protein and resid 901 to 928)}
+atomselect macro K72_Pore_S5_6l_4 {(protein and resid 929 to 960)}
+atomselect macro K72_Pore_filter_4 {(protein and resid 950 to 954)}
+atomselect macro K72_Pore_S6_4 {(protein and resid 961 to 996)}
+atomselect macro K72_Pore_4 {(protein and resid 901 to 996)}
+atomselect macro K72_VSDnet4 {(protein and resid 759 803 810 813 845 871 874 877 880 883 886)}
+atomselect macro K72_Pore {(K72_Pore_1 or K72_Pore_2 or K72_Pore_3 or K72_Pore_4)}
+atomselect macro K72_RTG_bs_1 {(protein and resid 158 159 162 163 165 166 167 169 198 231 234 238 471 472 475)}
+atomselect macro K72_RTG_bs_2 {(protein and resid 407 408 411 412 414 415 416 418 447 480 483 487 720 721 724)}
+atomselect macro K72_RTG_bs_3 {(protein and resid 656 657 660 661 663 664 665 667 696 729 732 736 969 970 973)}
+atomselect macro K72_RTG_bs_4 {(protein and resid 905 906 909 910 912 913 914 916 945 978 981 985 222 223 226)}
+atomselect macro K72_ICA73_F168_1 {(protein and resid 12 13 14 70 92 93 94 95 96 97 98 144 145)}
+atomselect macro K72_ICA73_F168_2 {(protein and resid 261 262 263 319 341 342 343 344 345 346 347 393 394)}
+atomselect macro K72_ICA73_F168_3 {(protein and resid 510 511 512 568 590 591 592 593 594 595 596 642 643)}
+atomselect macro K72_ICA73_F168_4 {(protein and resid 759 760 761 817 839 840 841 842 843 844 845 891 892)}
+atomselect macro K72_ICA73_A181_1 {(protein and resid 103 104 105 106 107 108 109 110 111 126 129 130)}
+atomselect macro K72_ICA73_A181_2 {(protein and resid 352 353 354 355 356 357 358 359 360 375 378 379)}
+atomselect macro K72_ICA73_A181_3 {(protein and resid 601 602 603 604 605 606 607 608 609 624 627 628)}
+atomselect macro K72_ICA73_A181_4 {(protein and resid 850 851 852 853 854 855 856 857 858 873 876 877)}
+atomselect macro DDI2_bottom_link {protein and resid 94 to 123 224 to 252}
+atomselect macro DDI2_up_flaps {protein and resid 40 to 59 84 to 90 171 to 188 215 to 219}
+atomselect macro DDI2_up_large_flaps {protein and resid 40 to 59 171 to 188}
+atomselect macro DDI2_up_small_flaps {protein and resid 84 to 90 215 to 219}
+atomselect macro DDI2_middle_flaps {protein and resid 23 to 28 153 to 158}
+atomselect macro BVDV_NT {residue 0 to 41}
+atomselect macro BVDV_L1 {residue 31 to 41}
+atomselect macro BVDV_L1_key {residue 30}
+atomselect macro BVDV_L2 {residue 127 to 137}
+atomselect macro BVDV_L2_key {residue 129 132}
+atomselect macro BVDV_L3 {residue 435 to 445}
+atomselect macro BVDV_L3_key {residue 440 441}
+atomselect macro BVDV_L4 {residue 297 to 303}
+atomselect macro BVDV_L4_key {residue 34 36 38}
+atomselect macro BVDV_MI {residue 168 to 174}
+atomselect macro BVDV_MI_key {residue 169 170 172}
+atomselect macro BVDV_MII {residue 189 to 211}
+atomselect macro BVDV_FingertipI {residue 45 to 72}
+atomselect macro BVDV_FingertipII {residue 169 to 197}
+atomselect macro BVDV_b_region {BVDV_L1 or BVDV_L2 or BVDV_L3 or BVDV_L4 or BVDV_MI or BVDV_MII}
+atomselect macro BVDV_Palm {resid 223 to 259 320 to 409}
+atomselect macro BVDV_Thumb {resid 410 to 588}
+atomselect macro BVDV_Finger {resid 48 to 222 260 to 319}
+atomselect macro BVDV_Palm_Xray {resid 314 to 350 411 to 500}
+atomselect macro BVDV_Thumb_Xray {resid 501 to 679}
+atomselect macro BVDV_Finger_Xray {resid 162 to 313 351 to 410}
+atomselect macro BVDV_FingertipI_Xray {resid 135 to 162}
+atomselect macro BVDV_FingertipII_Xray {resid 259 to 287}
+atomselect macro BVDV_NTP_along_Xray {(protein and resid 172 271 282 285 347)}
+atomselect macro BVDV_NTP_along {(protein and resid 81 180 191 194 256) or (residue 80 179 190 193 255)}
+atomselect macro BVDV_template_along_Xray {(protein and resid 261 263 285 287 289 295 405 406)}
+atomselect macro BVDV_template_along {(protein and resid 170 172 194 196 198 204 314 315) or (residue 169 171 193 195 197 203 313 314)}
+atomselect macro BVDV_exit_along_Xray {(protein and resid 677)}
+atomselect macro BVDV_exit_along {(protein and resid 586) or (residue 585)}
+atomselect macro BVDV_catalytic_site_Xray {(protein and resid 345 350 448 449)}
+atomselect macro BVDV_catalytic_site {(protein and resid 254 259 357 358) or (residue 253 258 356 357)}
+atomselect macro BVDV_priming_site_Xray {(protein and resid 498 517 521 525)}
+atomselect macro BVDV_priming_site {(protein and resid 407 426 430 434) or (residue 406 425 429 433)}
+atomselect macro BVDV_GTP_site_Xray {(protein and resid 265 266 317 320 321 322 325 446 497 498 499 517 525 529 553 581 677)}
+atomselect macro BVDV_GTP_site {(protein and resid 174 175 226 229 230 231 234 355 406 407 408 426 434 438 462 490 586) or (residue 173 174 225 228 229 230 233 354 405 406 407 425 433 437 461 489 585)}
+atomselect macro unparametrized beta<1
+atomselect macro addedmolefacture {occupancy 0.8}
+atomselect macro qwikmd_protein {(not name QWIKMDDELETE and protein)}
+atomselect macro qwikmd_nucleic {(not name QWIKMDDELETE and nucleic)}
+atomselect macro qwikmd_glycan {(not name QWIKMDDELETE and glycan)}
+atomselect macro qwikmd_lipid {(not name QWIKMDDELETE and lipid)}
+atomselect macro qwikmd_hetero {(not name QWIKMDDELETE and hetero and not qwikmd_protein and not qwikmd_lipid and not qwikmd_nucleic and not qwikmd_glycan and not water)}
+# Display settings
+display eyesep       0.065000
+display focallength  2.000000
+display height       6.000000
+display distance     -2.000000
+display projection   Orthographic
+display nearclip set 0.010000
+display farclip  set 10.000000
+display depthcue   off
+display cuestart   0.500000
+display cueend     10.000000
+display cuestart   0.500000
+display cueend     10.000000
+display cuedensity 0.320000
+display cuemode    Exp2
+display shadows off
+display ambientocclusion off
+display aoambient 0.800000
+display aodirect 0.300000
+display dof off
+display dof_fnumber 64.000000
+display dof_focaldist 0.700000
+mol new AP5_chainB.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top AP5_chainB.pdb
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 0
+mol new AP5_chainA_confB.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top AP5_chainA_confB.pdb
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 1
+mol new AP5_chainA_confA.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top AP5_chainA_confA.pdb
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 2
+mol new /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confA/Autodock/AP5.pdbqt type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top AP5_A.pdbqt
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 3
+mol new /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confB/Autodock/AP5.pdbqt type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top AP5_B.pdbqt
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 4
+mol new /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confB/Autodock/holo_complex_AK.parm7 type parm7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confB/Autodock/holo_complex_AK.rst7 type rst7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {resname AP5}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top amber_B
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 5
+mol new /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confA/Autodock/holo_complex_AK.parm7 type parm7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /home/vargiu/work/docking_database/docking/HC_Kmeans/AK/AP5-confA/Autodock/holo_complex_AK.rst7 type rst7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation Lines
+mol color Name
+mol selection {resname AP5}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol rename top amber_A
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -54.1805} {0 1 0 -40.7789} {0 0 1 -11.6152} {0 0 0 1}} {{0.924553 0.219435 0.311534 0} {0.306872 -0.913428 -0.267328 0} {0.225905 0.342761 -0.911849 0} {0 0 0 1}} {{0.153285 0 0 0} {0 0.153285 0 0} {0 0 0.153285 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+set topmol [molinfo top]
+# done with molecule 6
+foreach v $viewplist {
+  molinfo $v set {center_matrix rotate_matrix scale_matrix global_matrix} $viewpoints($v)
+}
+foreach v $fixedlist {
+  molinfo $v set fixed 1
+}
+unset viewplist
+unset fixedlist
+mol top $topmol
+unset topmol
+proc vmdrestoremycolors {} {
+color scale colors RWB {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWR {0.0 0.0 1.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors RGryB {1.0 0.0 0.0} {0.5 0.5 0.5} {0.0 0.0 1.0}
+color scale colors BGryR {0.0 0.0 1.0} {0.5 0.5 0.5} {1.0 0.0 0.0}
+color scale colors RGB {1.0 0.0 0.0} {0.0 1.0 0.0} {0.0 0.0 1.0}
+color scale colors BGR {0.0 0.0 1.0} {0.0 1.0 0.0} {1.0 0.0 0.0}
+color scale colors RWG {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors GWR {0.0 1.0 0.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors GWB {0.0 1.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWG {0.0 0.0 1.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors BlkW {0.0 0.0 0.0} {0.5 0.5 0.5} {1.0 1.0 1.0}
+color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
+  color scale method BWR
+  set colorcmds {
+    {color Display {Background} white}
+    {color Display {BackgroundTop} black}
+    {color Display {BackgroundBot} blue2}
+    {color Display {FPS} black}
+    {color Name {C} gray}
+    {color Name {LPA} green}
+    {color Name {LPB} green}
+    {color Type {C} gray}
+    {color Type {LP} green}
+    {color Type {DRUD} pink}
+    {color Element {X} cyan}
+    {color Element {Ac} ochre}
+    {color Element {Ag} ochre}
+    {color Element {Al} ochre}
+    {color Element {Am} ochre}
+    {color Element {Ar} ochre}
+    {color Element {As} ochre}
+    {color Element {At} ochre}
+    {color Element {Au} ochre}
+    {color Element {B} ochre}
+    {color Element {Ba} ochre}
+    {color Element {Be} ochre}
+    {color Element {Bh} ochre}
+    {color Element {Bi} ochre}
+    {color Element {Bk} ochre}
+    {color Element {Br} ochre}
+    {color Element {C} gray}
+    {color Element {Ca} ochre}
+    {color Element {Cd} ochre}
+    {color Element {Ce} ochre}
+    {color Element {Cf} ochre}
+    {color Element {Cl} ochre}
+    {color Element {Cm} ochre}
+    {color Element {Co} ochre}
+    {color Element {Cr} ochre}
+    {color Element {Cs} ochre}
+    {color Element {Cu} ochre}
+    {color Element {Db} ochre}
+    {color Element {Ds} ochre}
+    {color Element {Dy} ochre}
+    {color Element {Er} ochre}
+    {color Element {Es} ochre}
+    {color Element {Eu} ochre}
+    {color Element {F} ochre}
+    {color Element {Fe} ochre}
+    {color Element {Fm} ochre}
+    {color Element {Fr} ochre}
+    {color Element {Ga} ochre}
+    {color Element {Gd} ochre}
+    {color Element {Ge} ochre}
+    {color Element {He} ochre}
+    {color Element {Hf} ochre}
+    {color Element {Hg} ochre}
+    {color Element {Ho} ochre}
+    {color Element {Hs} ochre}
+    {color Element {I} ochre}
+    {color Element {In} ochre}
+    {color Element {Ir} ochre}
+    {color Element {K} ochre}
+    {color Element {Kr} ochre}
+    {color Element {La} ochre}
+    {color Element {Li} ochre}
+    {color Element {Lr} ochre}
+    {color Element {Lu} ochre}
+    {color Element {Md} ochre}
+    {color Element {Mg} ochre}
+    {color Element {Mn} ochre}
+    {color Element {Mo} ochre}
+    {color Element {Mt} ochre}
+    {color Element {Na} ochre}
+    {color Element {Nb} ochre}
+    {color Element {Nd} ochre}
+    {color Element {Ne} ochre}
+    {color Element {Ni} ochre}
+    {color Element {No} ochre}
+    {color Element {Np} ochre}
+    {color Element {Os} ochre}
+    {color Element {Pa} ochre}
+    {color Element {Pb} ochre}
+    {color Element {Pd} ochre}
+    {color Element {Pm} ochre}
+    {color Element {Po} ochre}
+    {color Element {Pr} ochre}
+    {color Element {Pt} ochre}
+    {color Element {Pu} ochre}
+    {color Element {Ra} ochre}
+    {color Element {Rb} ochre}
+    {color Element {Re} ochre}
+    {color Element {Rf} ochre}
+    {color Element {Rg} ochre}
+    {color Element {Rh} ochre}
+    {color Element {Rn} ochre}
+    {color Element {Ru} ochre}
+    {color Element {Sb} ochre}
+    {color Element {Sc} ochre}
+    {color Element {Se} ochre}
+    {color Element {Sg} ochre}
+    {color Element {Si} ochre}
+    {color Element {Sm} ochre}
+    {color Element {Sn} ochre}
+    {color Element {Sr} ochre}
+    {color Element {Ta} ochre}
+    {color Element {Tb} ochre}
+    {color Element {Tc} ochre}
+    {color Element {Te} ochre}
+    {color Element {Th} ochre}
+    {color Element {Ti} ochre}
+    {color Element {Tl} ochre}
+    {color Element {Tm} ochre}
+    {color Element {U} ochre}
+    {color Element {V} ochre}
+    {color Element {W} ochre}
+    {color Element {Xe} ochre}
+    {color Element {Y} ochre}
+    {color Element {Yb} ochre}
+    {color Element {Zr} ochre}
+    {color Resname {AP5} silver}
+    {color Resname {HIE} green}
+    {color Chain {B} blue}
+    {color Chain {A} red}
+    {color Chain {d} gray}
+    {color Chain {X} orange}
+    {color Segname {} blue}
+    {color Segname {.417} red}
+    {color Segname {.624} gray}
+    {color Segname {.180} orange}
+    {color Segname {.427} yellow}
+    {color Segname {.287} tan}
+    {color Segname {.216} silver}
+    {color Segname {.353} green}
+    {color Segname {.182} white}
+    {color Segname {.390} pink}
+    {color Segname {.198} cyan}
+    {color Segname {.388} purple}
+    {color Segname {.262} lime}
+    {color Segname {.294} mauve}
+    {color Segname {.214} ochre}
+    {color Segname {.236} iceblue}
+    {color Segname {.149} black}
+    {color Segname {.155} yellow2}
+    {color Segname {.382} yellow3}
+    {color Segname {.222} green2}
+    {color Segname {.237} green3}
+    {color Segname {.167} cyan2}
+    {color Segname {.210} cyan3}
+    {color Segname {.157} blue2}
+    {color Conformation {all} blue}
+    {color Molecule {0} blue}
+    {color Molecule {1} red}
+    {color Molecule {2} gray}
+    {color Molecule {3} orange}
+    {color Molecule {4} yellow}
+    {color Molecule {5} tan}
+    {color Molecule {amber_B} tan}
+    {color Molecule {6} green}
+    {color Molecule {amber_A} silver}
+    {color Molecule {AP5_A.pdbqt} orange}
+    {color Molecule {AP5_B.pdbqt} yellow}
+    {color Structure {3_10_Helix} blue}
+    {color Surface {Grasp} gray}
+    {color Labels {Bonds} black}
+    {color Labels {Springs} orange}
+    {color Stage {Even} gray}
+    {color Stage {Odd} silver}
+  }
+  foreach colcmd $colorcmds {
+    set val [catch {eval $colcmd}]
+  }
+  color change rgb 0 0.0 0.0 1.0
+  color change rgb 2 0.3499999940395355 0.3499999940395355 0.3499999940395355
+  color change rgb 3 1.0 0.5 0.0
+  color change rgb 4 1.0 1.0 0.0
+  color change rgb 5 0.5 0.5 0.20000000298023224
+  color change rgb 6 0.6000000238418579 0.6000000238418579 0.6000000238418579
+  color change rgb 7 0.0 1.0 0.0
+  color change rgb 9 1.0 0.6000000238418579 0.6000000238418579
+  color change rgb 11 0.6499999761581421 0.0 0.6499999761581421
+  color change rgb 12 0.5 0.8999999761581421 0.4000000059604645
+  color change rgb 13 0.8999999761581421 0.4000000059604645 0.699999988079071
+  color change rgb 14 0.5 0.30000001192092896 0.0
+  color change rgb 15 0.5 0.5 0.75
+  color change rgb 17 0.8799999952316284 0.9700000286102295 0.019999999552965164
+  color change rgb 18 0.550000011920929 0.8999999761581421 0.019999999552965164
+  color change rgb 19 0.0 0.8999999761581421 0.03999999910593033
+  color change rgb 20 0.0 0.8999999761581421 0.5
+  color change rgb 21 0.0 0.8799999952316284 1.0
+  color change rgb 22 0.0 0.7599999904632568 1.0
+  color change rgb 23 0.019999999552965164 0.3799999952316284 0.6700000166893005
+  color change rgb 24 0.009999999776482582 0.03999999910593033 0.9300000071525574
+  color change rgb 25 0.27000001072883606 0.0 0.9800000190734863
+  color change rgb 26 0.44999998807907104 0.0 0.8999999761581421
+  color change rgb 27 0.8999999761581421 0.0 0.8999999761581421
+  color change rgb 28 1.0 0.0 0.6600000262260437
+  color change rgb 29 0.9800000190734863 0.0 0.23000000417232513
+  color change rgb 30 0.8100000023841858 0.0 0.0
+  color change rgb 31 0.8899999856948853 0.3499999940395355 0.0
+  color change rgb 32 0.9599999785423279 0.7200000286102295 0.0
+}
+vmdrestoremycolors
+label textsize 1.0

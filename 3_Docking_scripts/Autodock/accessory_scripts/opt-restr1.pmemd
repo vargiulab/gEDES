@@ -1,0 +1,40 @@
+DIR=.
+#LIG=$1
+NAME=${DIR}/com
+TOP=$NAME.parm7
+XYZ=$NAME.rst7
+OUT=opt-restr1.out
+CRD=opt-restr1.crd
+RST=rest1.rst7
+EN=opt-restr1.en
+REF=$NAME.rst7
+NP=6
+
+cat <<EOF>INPUT
+initial minimisation whole system
+ &cntrl
+  imin   = 1,
+  maxcyc = 25000,
+  ncyc   = 1000,
+  ntb    = 0,
+  ntr    = 1,
+  cut    = 18,
+  ntwx   = 100,
+  ntwr   = 100,
+!  igb    = 8,
+!  intdiel= 1,
+!  extdiel= 78.5,
+!  saltcon= 0.1,
+  restraint_wt=0.3,
+!  restraintmask=":1-609,611-1642,1644-2675,2677-3099,@%CT,CA,C,O,N"
+  restraintmask="!@H="
+  ntf=1,
+  ntb=1,
+  ntc=1,
+!  ntxo = 1,
+!  ioutfm = 1,
+/
+EOF
+
+$(which pmemd.cuda) -O -i INPUT -o $OUT -c $XYZ -p $TOP -r $RST -x $CRD -ref $REF
+#$(which sander) -O -i INPUT -o $OUT -c $XYZ -p $TOP -r $RST -x $CRD -ref $REF
