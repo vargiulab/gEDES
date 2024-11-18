@@ -1,3 +1,5 @@
+gEDES -generalized Ensemble Docking with Enhanced sampling of pocket Shape-
+
 This folder contains all the scripts and the tools to prepare and analyze gEDES simulations, and to perform docking calculations with Autodock.
 There are 3 folders numbered from 1 to 3. A brief explanation of the content of each folder is reported below (note that there are several README.txt files within each folder, 
 containing more exhaustive information on specific tasks and scripts):
