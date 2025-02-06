@@ -1,9 +1,8 @@
 ## gEDES -generalized Ensemble Docking with Enhanced sampling of pocket Shape-
 
-gEDES paper (Feb, 2025)
-- https://doi.org/10.1021/acs.jcim.4c01810
+![TOC_gEDES](https://github.com/user-attachments/assets/2720330d-9ff7-4f8d-874f-306843b9c24b)
 
-This folder contains all the scripts and the tools to prepare and analyze gEDES simulations, and to perform docking calculations with Autodock.
+These GitHub directories contain all the scripts and the tools to prepare and analyze gEDES simulations, and to perform docking calculations with Autodock.
 There are 3 folders numbered from 1 to 3. A brief explanation of the content of each folder is reported below (note that there are several README.txt files within each folder, 
 containing more exhaustive information on specific tasks and scripts):
 
@@ -18,4 +17,5 @@ Note that in the case of standard MD simulations performed with AMBER, it is suf
 Note that a tutorial explaining the use of a previous version of gEDES is available at the following link: 
 - https://molmod.dsf.unica.it/enhanced-sampling-of-binding-pocket-volume-and-shape-tutorial
 
-
+gEDES paper (Feb, 2025)
+- https://doi.org/10.1021/acs.jcim.4c01810
