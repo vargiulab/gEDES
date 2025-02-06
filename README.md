@@ -12,4 +12,9 @@ Note that in the case of standard MD simulations performed with AMBER, it is suf
 
 *3_Autodock_scripts:* Autodock scripts to perform docking, relaxation, and rescoring of the poses.
 
-Note that a tutorial explaining the use of a previous version of gEDES is available at the following link: https://molmod.dsf.unica.it/enhanced-sampling-of-binding-pocket-volume-and-shape-tutorial
+Note that a tutorial explaining the use of a previous version of gEDES is available at the following link: 
+- https://molmod.dsf.unica.it/enhanced-sampling-of-binding-pocket-volume-and-shape-tutorial
+
+
+gEDES paper (Feb, 2025)
+- https://doi.org/10.1021/acs.jcim.4c01810
