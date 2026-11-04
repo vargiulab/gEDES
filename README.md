@@ -1,4 +1,4 @@
-## gEDES -generalized Ensemble Docking with Enhanced sampling of pocket Shape-
+## gEDES (generalized Ensemble Docking with Enhanced sampling of pocket Shape)
 
 ![TOC_gEDES](https://github.com/user-attachments/assets/2720330d-9ff7-4f8d-874f-306843b9c24b)
 
